@@ -1,8 +1,7 @@
 import * as Knex from "knex";
 
-
 export async function up(knex: Knex): Promise<any> {
-    return knex.schema.createTable("incidents", (table) => {
+    return knex.schema.createTable("incidents", table => {
         table.increments();
 
         table.string("title").notNullable();
@@ -11,10 +10,12 @@ export async function up(knex: Knex): Promise<any> {
 
         table.string("ong_id").notNullable();
 
-        table.foreign("ong_id").references("id").inTable("ongs");
+        table
+            .foreign("ong_id")
+            .references("id")
+            .inTable("ongs");
     });
 }
-
 
 export async function down(knex: Knex): Promise<any> {
     knex.schema.dropTable("incidents");

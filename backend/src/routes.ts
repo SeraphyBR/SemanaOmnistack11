@@ -1,16 +1,12 @@
 import express from "express";
+import OngController from "./controllers/OngController";
+import IncidentController from "./controllers/IncidentController";
 
 const routes = express.Router();
 
-routes.post("/users", (req, res) => {
-    const body = req.body;
+routes.get("/ongs", OngController.index);
+routes.post("/ongs", OngController.create);
+routes.get("/incidents", IncidentController.index);
+routes.post("/incidents", IncidentController.create);
 
-    console.log(body);
-
-    return res.json({
-        evento: "Semana Omnistack 11.0",
-        aluno: "SeraphyBR"
-    });
-});
-
-export default routes
+export default routes;
