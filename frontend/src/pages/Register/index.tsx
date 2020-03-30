@@ -8,6 +8,8 @@ import "./styles.css";
 
 import logoImg from "../../assets/logo.svg";
 
+import Ong from "../../models/ong";
+
 function Register(): JSX.Element {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -22,7 +24,7 @@ function Register(): JSX.Element {
     ): Promise<void> {
         e.preventDefault();
 
-        const data = {
+        const new_ong: Ong  = {
             name,
             email,
             whatsapp,
@@ -31,7 +33,7 @@ function Register(): JSX.Element {
         };
 
         try {
-            const response = await api.post("ongs", data);
+            const response = await api.post<Ong>("ongs", new_ong);
             alert(`Seu ID de acesso: ${response.data.id}`);
             history.push("/");
         } catch (error) {
