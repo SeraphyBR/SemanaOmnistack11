@@ -3,7 +3,7 @@ import Routes from './routes';
 
 import "./global.css"
 
-function App() {
+function App(): JSX.Element {
   return (
     <Routes/>
   );

@@ -6,7 +6,7 @@ import "./styles.css";
 
 import logoImg from "../../assets/logo.svg";
 
-function Profile() {
+function Profile(): JSX.Element {
     return (
         <div className="profile-container">
             <header>
@@ -40,7 +40,7 @@ function Profile() {
                     <p>R$ 120,00</p>
 
                     <button type="button">
-                        <FiTrash2 size={20} color="#a8a8b3"/>
+                        <FiTrash2 size={20} color="#a8a8b3" />
                     </button>
                 </li>
             </ul>
